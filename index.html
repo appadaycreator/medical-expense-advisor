@@ -72,7 +72,15 @@
     .aff-btn-green { background: linear-gradient(135deg, #16a34a, #15803d); transition: opacity 0.2s; }
     .aff-btn-green:hover { opacity: 0.9; }
     .cross-link-card { border: 1px solid #bfdbfe; background: #eff8ff; }
-  </style>
+  
+/* Phase 8: Mobile Optimization */
+input, select, textarea { font-size: 16px !important; }
+button, .btn, .btn-primary, .option-btn, [role="button"] { min-height: 48px; min-width: 48px; touch-action: manipulation; }
+@media (max-width: 640px) {
+  body { font-size: 16px; }
+  .max-w-lg { padding-left: 1rem; padding-right: 1rem; }
+}
+</style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
