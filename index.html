@@ -188,7 +188,10 @@ button, .btn, .btn-primary, .option-btn, [role="button"] { min-height: 48px; min
 .mea-sdot{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;font-size:0.7rem;font-weight:700;background:#e5e7eb;color:#9ca3af;transition:background .3s,color .3s,transform .3s;}
 .mea-sdot.active{background:#059669;color:white;transform:scale(1.2);box-shadow:0 0 0 3px rgba(5,150,105,0.25);}
 .mea-sdot.done{background:#d1fae5;color:#059669;}
-</style>
+
+    /* アクセシビリティ: キーボードフォーカスリング */
+    button:focus-visible,[tabindex]:focus-visible,a:focus-visible,[role=button]:focus-visible{outline:3px solid #6366f1;outline-offset:2px;}
+  </style>
 <script type="application/ld+json">
 
 </script>
@@ -537,20 +540,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     
     <!-- phase8-social-proof -->
     <div class="card p-5 mb-4">
-      <h3 class="font-bold text-gray-800 mb-3 text-sm">⭐ 利用者の声</h3>
+      <h3 class="font-bold text-gray-800 mb-3 text-sm">💬 こんなふうに活用されています</h3>
       <div class="space-y-3">
         <div class="bg-gray-50 rounded-lg p-3">
-          <p class="text-xs text-gray-700">「すぐに結果が出て使いやすかったです。友人にも勧めました！」</p>
-          <p class="text-xs text-gray-400 mt-1">— 田中さん（30代・会社員）★★★★★</p>
+          <p class="text-xs text-gray-700"><span style="font-size:1.1em;">🏥</span> <strong>入院前の自己負担確認</strong></p>
+          <p class="text-xs text-gray-500 mt-1">手術前に高額療養費の自己負担目安を把握するために活用しました。</p>
         </div>
         <div class="bg-gray-50 rounded-lg p-3">
-          <p class="text-xs text-gray-700">「無料でここまで詳しく診断できるとは思いませんでした。」</p>
-          <p class="text-xs text-gray-400 mt-1">— 佐藤さん（40代・主婦）★★★★★</p>
+          <p class="text-xs text-gray-700"><span style="font-size:1.1em;">💊</span> <strong>医療費控除の確認</strong></p>
+          <p class="text-xs text-gray-500 mt-1">確定申告前に対象になる医療費の合計金額を把握するのに役立てました。</p>
         </div>
         <div class="bg-gray-50 rounded-lg p-3">
-          <p class="text-xs text-gray-700">「登録不要でサクッと使えるのが良いです。また利用します。」</p>
-          <p class="text-xs text-gray-400 mt-1">— 山本さん（20代・学生）★★★★☆</p>
+          <p class="text-xs text-gray-700"><span style="font-size:1.1em;">👨‍👩‍👧</span> <strong>家族の医療費管理</strong></p>
+          <p class="text-xs text-gray-500 mt-1">年間の医療費を把握して家計管理に活かすために使いました。</p>
         </div>
+        <p class="text-[10px] text-gray-400 mt-2 text-right">※ご利用イメージです</p>
       </div>
       <div class="flex gap-2 mt-4">
         <a href="https://line.me/R/share?text=高額療養費計算年間医療費・自己負担額をシミュレーション%20https://appadaycreator.com/medical-expense-advisor/" target="_blank" rel="noopener"
@@ -562,6 +566,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           Xでシェア
         </a>
       </div>
+      <div class="flex gap-2 mt-2">
+        <button onclick="(function(){var t=document.title+' '+location.href;if(navigator.clipboard){navigator.clipboard.writeText(t).then(function(){var b=document.getElementById('mea-copy-toast');if(b){b.style.display='block';setTimeout(function(){b.style.display='none';},1800);}});}else{var a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();document.execCommand('copy');document.body.removeChild(a);var b2=document.getElementById('mea-copy-toast');if(b2){b2.style.display='block';setTimeout(function(){b2.style.display='none';},1800);}}})()"
+           style="flex:1;display:block;text-align:center;background:#f59e0b;color:white;padding:8px;border-radius:8px;font-size:12px;font-weight:bold;cursor:pointer;border:none;">
+          📋 テキストをコピー
+        </button>
+      </div>
+      <div id="mea-copy-toast" style="display:none;text-align:center;margin-top:6px;font-size:11px;color:#059669;font-weight:bold;">✅ コピーしました</div>
     </div>
     <!-- phase9-related-links -->
     <div class="card p-5 mb-4">
