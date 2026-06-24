@@ -175,6 +175,48 @@
     .concerns-grid{grid-template-columns:1fr;}
     .hero-stats{flex-direction:column;}
   }
+
+  /* Hero Data Panel */
+  .hero-data-panel{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);border-radius:20px;padding:20px;backdrop-filter:blur(10px);width:268px;flex-shrink:0;}
+  .hdp-header{font-size:10px;font-weight:700;color:rgba(255,255,255,.6);letter-spacing:.1em;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,.12);}
+  .hdp-row{margin-bottom:10px;}
+  .hdp-num{font-size:20px;font-weight:800;color:#F59E0B;line-height:1.1;}
+  .hdp-num.green{color:#34d399;}
+  .hdp-num.white{color:#e2e8f0;}
+  .hdp-num small{font-size:11px;font-weight:600;margin-left:1px;}
+  .hdp-lbl{font-size:9px;color:rgba(255,255,255,.65);margin-top:2px;}
+  .hdp-bar{height:4px;background:rgba(255,255,255,.1);border-radius:2px;margin-top:5px;overflow:hidden;}
+  .hdp-bar-fill{height:100%;border-radius:2px;}
+  .hdp-sep{height:1px;background:rgba(255,255,255,.1);margin:10px 0;}
+  .hdp-chart-block{background:rgba(255,255,255,.07);border-radius:12px;padding:10px 12px;margin-top:12px;display:flex;align-items:center;gap:10px;}
+  .hdp-ring{width:52px;height:52px;border-radius:50%;background:conic-gradient(#F59E0B 0deg 72deg,#34d399 72deg 130deg,rgba(255,255,255,.12) 130deg 360deg);position:relative;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .hdp-ring::after{content:'';position:absolute;width:34px;height:34px;background:rgba(12,28,72,.92);border-radius:50%;}
+  .hdp-ring-label{position:relative;z-index:1;text-align:center;line-height:1.2;}
+  .hdp-ring-pct{font-size:10px;font-weight:800;color:#fff;}
+  .hdp-ring-sub{font-size:7px;color:rgba(255,255,255,.6);}
+  .hdp-legends{flex:1;}
+  .hdp-legend{display:flex;align-items:center;gap:5px;font-size:9px;color:rgba(255,255,255,.75);margin-bottom:4px;}
+  .hdp-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;}
+  @media(max-width:768px){.hero-data-panel{display:none;}}
+
+  /* Feature card color accents */
+  .feature-card.fc-blue{border-top:3px solid #2563EB;}
+  .feature-card.fc-teal{border-top:3px solid #10b981;}
+  .feature-card.fc-amber{border-top:3px solid #F59E0B;}
+  .feature-badge.badge-blue{background:#eff6ff;color:#1d4ed8;}
+  .feature-badge.badge-green{background:#f0fdf4;color:#166534;}
+  .feature-badge.badge-amber{background:#fffbeb;color:#92400e;}
+
+  /* Results donut chart */
+  .result-donut-wrap{display:flex;align-items:center;gap:14px;background:rgba(255,255,255,.07);border-radius:12px;padding:12px 14px;margin-top:14px;}
+  .result-donut{width:72px;height:72px;border-radius:50%;background:conic-gradient(#F59E0B 0deg 72deg,#10b981 72deg 130deg,rgba(255,255,255,.12) 130deg 360deg);position:relative;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .result-donut::after{content:'';position:absolute;width:46px;height:46px;background:#0f2d6b;border-radius:50%;}
+  .result-donut-center{position:relative;z-index:1;text-align:center;line-height:1.2;}
+  .result-donut-pct{font-size:13px;font-weight:800;color:#fff;}
+  .result-donut-lbl{font-size:7px;color:rgba(255,255,255,.65);}
+  .result-donut-legends{display:grid;gap:5px;flex:1;}
+  .rdd-legend{display:flex;align-items:center;gap:6px;font-size:10px;color:rgba(255,255,255,.8);}
+  .rdd-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;}
 </style>
 </head>
 <body>
@@ -225,8 +267,39 @@
         <a href="#features" class="btn-secondary">詳しく見る</a>
       </div>
     </div>
-    <div class="hero-photo-wrap">
-      <img src="../assets/photos/photo_02.jpg" alt="医療費診断イメージ">
+    <div class="hero-data-panel">
+      <div class="hdp-header">📊 診断結果プレビュー</div>
+      <div class="hdp-row">
+        <div class="hdp-num">428,000<small>円</small></div>
+        <div class="hdp-lbl">年間医療費総額（目安）</div>
+        <div class="hdp-bar"><div class="hdp-bar-fill" style="width:100%;background:rgba(255,255,255,.3);"></div></div>
+      </div>
+      <div class="hdp-sep"></div>
+      <div class="hdp-row">
+        <div class="hdp-num">87,430<small>円</small></div>
+        <div class="hdp-lbl">医療費控除 税金還付額</div>
+        <div class="hdp-bar"><div class="hdp-bar-fill" style="width:70%;background:#F59E0B;"></div></div>
+      </div>
+      <div class="hdp-sep"></div>
+      <div class="hdp-row">
+        <div class="hdp-num green">68,400<small>円</small></div>
+        <div class="hdp-lbl">高額療養費 削減額</div>
+        <div class="hdp-bar"><div class="hdp-bar-fill" style="width:56%;background:#34d399;"></div></div>
+      </div>
+      <div class="hdp-sep"></div>
+      <div class="hdp-row">
+        <div class="hdp-num white">240,570<small>円</small></div>
+        <div class="hdp-lbl">実質自己負担額</div>
+        <div class="hdp-bar"><div class="hdp-bar-fill" style="width:42%;background:rgba(255,255,255,.35);"></div></div>
+      </div>
+      <div class="hdp-chart-block">
+        <div class="hdp-ring"><div class="hdp-ring-label"><div class="hdp-ring-pct">44%</div><div class="hdp-ring-sub">節減率</div></div></div>
+        <div class="hdp-legends">
+          <div class="hdp-legend"><div class="hdp-dot" style="background:#F59E0B;"></div>医療費控除 20%</div>
+          <div class="hdp-legend"><div class="hdp-dot" style="background:#34d399;"></div>高額療養費 16%</div>
+          <div class="hdp-legend"><div class="hdp-dot" style="background:rgba(255,255,255,.2);"></div>実質負担 64%</div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -319,7 +392,7 @@
     <h2 class="section-title">3つの強みで「医療費の全体像」を把握</h2>
     <p class="section-sub">他のツールが単一機能なのに対し、当サービスは高額療養費＋医療費控除を統合診断。あなた専用の結果を提供します。</p>
     <div class="features-grid">
-      <div class="feature-card">
+      <div class="feature-card fc-blue">
         <img src="../assets/photos/photo_03.jpg" alt="統合診断" class="feature-photo">
         <div class="feature-body">
           <div class="feature-icon-row">
@@ -327,10 +400,10 @@
             <div class="feature-title">高額療養費＋医療費控除を統合診断</div>
           </div>
           <p class="feature-text">競合が単一機能なのに対し、当ツールは高額療養費制度と医療費控除を同時に計算。年間の医療費負担から税金還付額まで、一度の診断で全体像が把握できます。</p>
-          <span class="feature-badge">業界唯一の統合診断</span>
+          <span class="feature-badge badge-blue">業界唯一の統合診断</span>
         </div>
       </div>
-      <div class="feature-card">
+      <div class="feature-card fc-teal">
         <img src="../assets/photos/photo_04.jpg" alt="個別最適化" class="feature-photo">
         <div class="feature-body">
           <div class="feature-icon-row">
@@ -338,10 +411,10 @@
             <div class="feature-title">家族構成・健康状態で個別最適化</div>
           </div>
           <p class="feature-text">年齢・家族構成・持病の有無・過去の医療費実績を組み合わせ、あなただけのオーダーメイド診断を実施。一般的な試算ではなく、個人の状況に合った正確な結果が得られます。</p>
-          <span class="feature-badge">個人・家族モード対応</span>
+          <span class="feature-badge badge-green">個人・家族モード対応</span>
         </div>
       </div>
-      <div class="feature-card">
+      <div class="feature-card fc-amber">
         <img src="../assets/photos/photo_05.jpg" alt="比較チャート" class="feature-photo">
         <div class="feature-body">
           <div class="feature-icon-row">
@@ -349,7 +422,7 @@
             <div class="feature-title">視覚的な負担額比較チャート</div>
           </div>
           <p class="feature-text">高額療養費適用前後の比較グラフ、医療費控除による税金還付のシミュレーションをビジュアルで表示。数字だけでなく、グラフで直感的に理解できます。CSV出力にも対応。</p>
-          <span class="feature-badge">CSV/PDF出力対応</span>
+          <span class="feature-badge badge-amber">CSV/PDF出力対応</span>
         </div>
       </div>
     </div>
@@ -444,6 +517,14 @@
               <div class="bar-track"><div class="bar-fill bar-after" style="width:56%;">240,570円</div></div>
             </div>
           </div>
+          <div class="result-donut-wrap">
+            <div class="result-donut"><div class="result-donut-center"><div class="result-donut-pct">44%</div><div class="result-donut-lbl">節減率</div></div></div>
+            <div class="result-donut-legends">
+              <div class="rdd-legend"><div class="rdd-dot" style="background:#F59E0B;"></div>医療費控除還付 87,430円</div>
+              <div class="rdd-legend"><div class="rdd-dot" style="background:#10b981;"></div>高額療養費削減 68,400円</div>
+              <div class="rdd-legend"><div class="rdd-dot" style="background:rgba(255,255,255,.2);"></div>実質自己負担 240,570円</div>
+            </div>
+          </div>
         </div>
         <div class="photo-demo">
           <img src="../assets/photos/photo_06.jpg" alt="診断結果イメージ" style="width:100%;border-radius:12px;">
@@ -498,9 +579,51 @@
   </div>
 </section>
 
+<!-- Medical Options -->
+<section style="background:linear-gradient(135deg,#f0f9ff 0%,#e0f2fe 100%);padding:64px 20px;">
+  <div class="section-inner">
+    <div class="section-label">医療費の備え</div>
+    <h2 class="section-title">高額医療費に備える3つの選択肢</h2>
+    <p class="section-sub">万が一の高額医療費に対して、事前に備える方法を把握しておきましょう。</p>
+    <div style="display:flex;gap:40px;align-items:center;flex-wrap:wrap;margin-top:40px;">
+      <div style="flex:1;min-width:280px;display:grid;gap:16px;">
+        <div style="background:#fff;border-radius:16px;padding:20px;box-shadow:0 2px 12px rgba(0,0,0,.06);border-left:4px solid #2563EB;">
+          <div style="font-size:13px;font-weight:800;color:#1e293b;margin-bottom:6px;">① 高額療養費制度を活用</div>
+          <div style="font-size:12px;color:#64748b;line-height:1.7;">月ごとの医療費上限（自己負担限度額）を超えた分が払い戻されます。事前申請で窓口負担も抑制可能。年間最大数十万円の削減効果があります。</div>
+        </div>
+        <div style="background:#fff;border-radius:16px;padding:20px;box-shadow:0 2px 12px rgba(0,0,0,.06);border-left:4px solid #10b981;">
+          <div style="font-size:13px;font-weight:800;color:#1e293b;margin-bottom:6px;">② 医療費控除で節税</div>
+          <div style="font-size:12px;color:#64748b;line-height:1.7;">年間10万円超の医療費を確定申告で所得から控除。税率20%の方なら8.7万円の還付も可能。家族分も合算できます。</div>
+        </div>
+        <div style="background:#fff;border-radius:16px;padding:20px;box-shadow:0 2px 12px rgba(0,0,0,.06);border-left:4px solid #F59E0B;">
+          <div style="font-size:13px;font-weight:800;color:#1e293b;margin-bottom:6px;">③ 民間医療保険で補填</div>
+          <div style="font-size:12px;color:#64748b;line-height:1.7;">差額ベッド代・食事代・収入補填など公的保険でカバーできない費用を補う。まず必要額を診断で把握してから検討を。</div>
+        </div>
+        <div style="margin-top:8px;text-align:center;">
+          <a href="/medical-expense-advisor/" class="btn-primary" style="font-size:15px;">今すぐ必要額を診断する →</a>
+        </div>
+      </div>
+      <div style="flex:0 0 340px;min-width:280px;border-radius:20px;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,.12);">
+        <img src="../assets/photos/photo_21.jpg" alt="医療費の備え方" style="width:100%;display:block;object-fit:cover;aspect-ratio:4/3;">
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- Trust -->
 <section class="trust" id="trust">
   <div class="section-inner">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:24px;flex-wrap:wrap;">
+      <div style="background:#2563EB;color:#fff;font-size:11px;font-weight:700;padding:5px 14px;border-radius:20px;display:inline-flex;align-items:center;gap:6px;">
+        <span>🏥</span> 厚生労働省データ準拠
+      </div>
+      <div style="background:#10b981;color:#fff;font-size:11px;font-weight:700;padding:5px 14px;border-radius:20px;display:inline-flex;align-items:center;gap:6px;">
+        <span>📋</span> 国税庁ガイドライン準拠
+      </div>
+      <div style="background:#7c3aed;color:#fff;font-size:11px;font-weight:700;padding:5px 14px;border-radius:20px;display:inline-flex;align-items:center;gap:6px;">
+        <span>🔒</span> 個人情報送信ゼロ
+      </div>
+    </div>
     <div class="section-label">診断開始まえに、必ず安心をチェック</div>
     <h2 class="section-title">安心してご利用いただけます</h2>
     <p class="section-sub">プライバシーと安全性を最優先に設計されています。</p>
